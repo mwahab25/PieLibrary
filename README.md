@@ -12,8 +12,8 @@ Demo Home Library Management system that manage books and related authors, publi
 ## Run 
 - Download solution
 - open in visualstudio 2017
-- open Package Manager Console and run command update-database
 - build solution 
+- open Package Manager Console and run command update-database
 - run on IIS Express, default launch url api "http://localhost:59042/api/books" 
                      , open client from "http://localhost:59042/VBooks/Index"
                      , default template: "{controller}/{action}/{id?}"
