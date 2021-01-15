@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using PieLibraryApi.Models;
+using Microsoft.Extensions.Hosting;
 
 namespace PieLibraryApi
 {
@@ -27,24 +28,36 @@ namespace PieLibraryApi
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddDbContext<PieLibraryContext>(opt => opt.UseInMemoryDatabase("PieLibraryDb"));
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddDbContext<PieLibraryContext>
-                (options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            //services.AddDbContext<PieLibraryContext>
+            //    (options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+
+            services.AddControllersWithViews();
+
+            services.AddDbContext<PieLibraryContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("PieLibraryContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvc(routes =>
+            app.UseHttpsRedirection();
+            app.UseStaticFiles();
+
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapRoute(
+                endpoints.MapControllerRoute(
                     name: "default",
-                    template: "{controller}/{action}/{id?}");               
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
