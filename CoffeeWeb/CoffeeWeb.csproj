@@ -6,8 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Views\Books\" />
-    <Folder Include="Views\Shelves\" />
-    <Folder Include="Views\Publishers\" />
   </ItemGroup>
 
   <ItemGroup>

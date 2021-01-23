@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Shelf>
+    @{ Layout = "_Layout"; ViewBag.Title = "All Shelves";}
+
+<h2>All Authors</h2>
+    <a asp-action="Create" class="btn btn-sm btn-primary">Add Shelf</a>
+    <a asp-action="GetShelf" class="btn btn-sm btn-secondary">Get Shelf</a>
+
+    <table class="table table-sm table-striped table-bordered m-2">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var r in Model)
+            {
+                <tr>
+                    <td>@r.ShelfId</td>
+                    <td>@r.ShelfName</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@r.ShelfId">Edit</a>
+                        <a asp-action="Details" asp-route-id="@r.ShelfId">Details</a>
+                        <a asp-action="Delete" asp-route-id="@r.ShelfId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
