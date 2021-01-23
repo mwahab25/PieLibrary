@@ -21,9 +21,9 @@
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "api/books",
-      "applicationUrl": "http://localhost:5000",
+      "applicationUrl": "http://localhost:5002;https://localhost:5003",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Production"
       }
     }
   }

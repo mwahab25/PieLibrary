@@ -14,7 +14,7 @@ namespace PieLibraryApi
     {
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+            CreateWebHostBuilder(args).UseKestrel().UseUrls("http://localhost:5002", "https://localhost:5003").UseIISIntegration().Build().Run();
         }
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
