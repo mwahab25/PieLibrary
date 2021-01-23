@@ -1,6 +1,7 @@
 # PieLibrary
 ## About
-Demo Home Library Management api that manage books and related authors, publishers and Shelves 
+- Demo Home Library Management API that manage books and related authors, publishers and Shelves 
+- CoffeeWeb is GUI App
 ## Tools
 - Visual Studio IDE
 - .net core 3.1
@@ -8,7 +9,7 @@ Demo Home Library Management api that manage books and related authors, publishe
 - Web Api 
 - Ms sql server localdb (database)
 
-## Run 
+## Run api
 - Download solution
 - open in visualstudio 2017
 - build solution 
